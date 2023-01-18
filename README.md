@@ -49,5 +49,4 @@ MERN SOCIAL MEDIA WEBSITE FOR PETS
 4. NPM
 5. complete config.env data
 6. express
-7. react & redux
-8.Hosting - Oracle Cloud
+7. react & redux & Hosting - Oracle Cloud
