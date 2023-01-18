@@ -1,0 +1,86 @@
+.register {
+    min-height: 100vh;
+    background-color: #ddffaa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='172' height='172' viewBox='0 0 120 120'%3E%3Cpolygon fill='%23AE9' fill-opacity='0.84' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vmax;
+    box-sizing: border-box;
+  }
+  
+  .registerForm {
+    background-color: white;
+    background-image: url(../../images/cat1.jpg);
+    background-size: cover;
+    width: 50%;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 2vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registerInputs {
+    box-sizing: border-box;
+    padding: 1vmax 2vmax;
+    width: 80%;
+    border-radius: 40px;
+    border: 1px solid #ccc;
+    margin: 2vmax;
+    font: 100 1.2rem "Roboto", sans-serif;
+    outline: none;
+  }
+  
+  .registerForm > input[type="file"] {
+    border-radius: 30px;
+    margin: 2vmax;
+  }
+  .registerForm > input{
+    opacity: 0.7;
+  }
+  .registerForm > input[type="file"]::-webkit-file-upload-button {
+    background-color: rgb(38, 63, 173);
+    color: white;
+    width: 100%;
+    padding: 1vmax;
+    border-radius: 30px;
+    border: none;
+    font: 100 1.2rem "Roboto", sans-serif;
+  }
+  
+  .registerForm > a {
+    align-self: flex-end;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.342);
+    margin: 2vmax;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .registerForm {
+      width: 100%;
+    }
+  
+    .registerForm > input {
+      padding: 4vw 8vw;
+      margin: 2vmax;
+      font: 100 1.2rem "Roboto", sans-serif;
+      margin: 4vw;
+      
+    }
+  
+    .registerForm > input[type="file"] {
+      width: 100%;
+    }
+  
+    .registerForm > input[type="file"]::-webkit-file-upload-button {
+      width: 70%;
+    }
+  
+    .registerForm > a {
+      align-self: center;
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.342);
+    }
+  }

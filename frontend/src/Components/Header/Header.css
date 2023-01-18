@@ -1,0 +1,74 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0.2px solid white;
+    box-shadow: 0 0.2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.59);
+    background-color:#2f3542;
+    border-radius: 5px;
+  }
+  .header > h5{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(124, 124, 217);
+    font-size: x-large;
+    justify-self: flex-start;
+  }
+  .header > a {
+    width: 2vmax;
+    height: 2vmax;
+    margin: 1vmax 4vmax;
+  }
+  .header > a > svg {
+    font-size: 2vmax;
+    transition: all 0.5s;
+    color: rgba(255, 255, 255, 0.445);
+  }
+  
+  .header > a > svg:hover {
+    color: rgb(5, 1, 14);
+    transform: scale(1.2);
+  }
+  .btn-sidebar{
+    border: 1px white solid;
+    visibility: hidden;
+    margin-right: 20px;
+    cursor: pointer;
+    transition:all 0.5s;
+  }
+  .btn-sidebar:hover{
+    transform: scale(1.2);
+    
+  }
+  .btn-sidebar > div {
+    width: 20px;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: 1px black solid;
+  
+  }
+  @media screen and (max-width: 600px) {
+    .header{
+      justify-content: none;
+      
+    }
+    .header > a {
+      width: 8vw;
+      height: 8vw;
+      margin: 2vw 8vw;
+    }
+    .header > h5{
+      margin-left: 5px;
+    }
+    .header > a > svg {
+      font-size: 4vw;
+      margin-left: -10px;
+      margin-right: -30px;
+    }
+    .btn-sidebar{
+      visibility: visible;
+    }
+   
+  }
