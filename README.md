@@ -48,5 +48,5 @@ MERN SOCIAL MEDIA WEBSITE FOR PETS
 3. Cloudinary account
 4. NPM
 5. complete config.env data
-6. express
-7. react & redux & Hosting - Oracle Cloud
+6. express, react & redux
+7. Hosting - Oracle Cloud
