@@ -1,4 +1,6 @@
-Cloud Application Project  -  MERN SOCIAL MEDIA WEBSITE FOR PETS
+Cloud Application Project  -  (Year 3 – Semester 2)
+MERN SOCIAL MEDIA WEBSITE FOR PETS
+
 
 # Live link -  https://petsweb.live/ 
 
