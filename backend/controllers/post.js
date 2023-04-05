@@ -4,7 +4,7 @@ const User = require("../models/User.js")
 exports.createPost = async(req,res)=>{
     try {
 
-      const newPostData = {//create user's post using his details(reqvest.body detais)
+      const newPostData = {
         caption:req.body.caption,
         image:{
             public_id:"req.body.pulic_id",
@@ -13,13 +13,13 @@ exports.createPost = async(req,res)=>{
         owner:req.user._id
       }
 
-      const post = await Post.create(newPostData)//create post and asign object post
-      const user = await User.findById(req.user._id)//find relavant user using user's id 
-      user.posts.push(post._id)//push the post id user's posts array
-      await user.save()//Saves this document by inserting a new document into the database
+      const post = await Post.create(newPostData)
+      const user = await User.findById(req.user._id)
+      user.posts.push(post._id)
+      await user.save()
 
 
-      res.status(201).json({//send successs reqvest
+      res.status(201).json({
         success:true,
         post,
       }) 
@@ -34,27 +34,27 @@ exports.createPost = async(req,res)=>{
 
 exports.likeAndUnlikePost = async(req,res)=>{
        try {
-         const post = await Post.findById(req.params.id)//find relavan post id post in database ,like/123
+         const post = await Post.findById(req.params.id)
          
-         if(!post){ //if we not find relavant post id then send error msg
+         if(!post){
            return res.status(404).json({
             success:false,
             message:"Post Not Found"
            })
          }
 
-         if(post.likes.includes(req.user._id)){//check the current user id is in this array or not 
+         if(post.likes.includes(req.user._id)){
 
-             const index = post.likes.indexOf(req.user._id)//user id is in this array.we check index of user id[121233,2243443,3535353]
-             post.likes.splice(index,1)//1 mean remove the item relavant position(index of user id) , if we add 0 for 1 that me insert the element revant position. splice(2,1,"eee") that mean replace the elemant
+             const index = post.likes.indexOf(req.user._id)
+             post.likes.splice(index,1)
              await post.save()
              return res.status(200).json({
               success:true,
               message:"Post Unliked"
             })
         }else{
-          post.likes.push(req.user._id)//push the user id inside the post likes array
-          await post.save()//save data in data base after push the id inside array
+          post.likes.push(req.user._id)
+          await post.save()/
           return res.status(200).json({
             success:true,
             message:"Post liked"
@@ -73,15 +73,15 @@ exports.deletePost = async (req,res)=>{
   try {
     const post = await Post.findById(req.params.id)
     
-    if(!post){ //if we not find relavant post id then send error msg
+    if(!post){ 
       return res.status(404).json({
        success:false,
        message:"Post Not Found" 
       })
     }
 
-    if(post.owner.toString() !== req.user._id.toString()){//match the post owner is current user or not
-        return res.status(401).json({//does not match then send respond [Unathorized user]
+    if(post.owner.toString() !== req.user._id.toString()){
+        return res.status(401).json({
           success:false,
           message:"Unauthorized"
         })
@@ -89,10 +89,10 @@ exports.deletePost = async (req,res)=>{
 
     await post.remove();
    
-    const user = await User.findById(req.user._id)//assign to user variable relavan user's oblect[his name,his other.....]
-    const index =  user.posts.indexOf(req.params.id)//finde the index of post in user model posts array [he pulished posts]
-    user.posts.splice(index,1)//remove the post id in user's posts array
-    await user.save()//after changes array we need to save current updated array in database
+    const user = await User.findById(req.user._id)
+    const index =  user.posts.indexOf(req.params.id)
+    user.posts.splice(index,1)
+    await user.save()
 
 
     res.status(200).json({
@@ -110,22 +110,22 @@ exports.deletePost = async (req,res)=>{
 
 exports.updateCaption = async (req,res)=>{
   try {
-    const post = await Post.findById(req.params.id)//get the post id in URI
-    if(!post){//check the post exist or not
+    const post = await Post.findById(req.params.id)
+    if(!post){
         return res.status(404).json({
             success:false,
             message:"Post Not Found"
         })
     }
   
-    if(post.owner.toString() !== req.user._id.toString()){//match the post owner is current user or not
-      return res.status(401).json({//does not match then send respond [Unathorized user]
+    if(post.owner.toString() !== req.user._id.toString()){
+      return res.status(401).json({
         success:false,
         message:"Unauthorized"
       })
     }
   
-    post.caption = req.body.caption//assign new caption[new caption get from the reqvest body]
+    post.caption = req.body.caption
     await post.save()
     res.status(200).json({
         success:true,
@@ -204,7 +204,7 @@ exports.commentOnPost = async (req, res) => {
     
     let commentIndex = -1;
 
-    // Checking if comment already exists
+   
 
     post.comments.forEach((item, index) => {
      
@@ -243,7 +243,7 @@ exports.commentOnPost = async (req, res) => {
   }
 };
 
-    // Checking If owner wants to delete
+
     exports.deleteComment = async (req, res) => {
       try {
         const post = await Post.findById(req.params.id);
