@@ -140,55 +140,7 @@ exports.updateCaption = async (req,res)=>{
  
 }
 
-// exports.commentOnPost = async(req,res) =>{
-//   try {
-//     const post = await Post.findById(req.params.id)
 
-//     if(!post){
-//       return res.status(404).json({
-//         success:false,
-//         message:"Post Not Found"
-//       })
-//     }
-
-//     let commentExists = -1
-//     //checking if comment already exists or not
-//     post.comments.forEach((item, index) => {
-//       console.log("dsd")
-//       if (item.user.toString() === req.user._id.toString()) {
-//         commentIndex = index;
-//       }
-//     });
-    
-//     if(commentExists !== -1){
-//       post.comments[commentExists].comment = req.body.comment
-       
-//       await post.save()
-//       return res.status(200).json({
-//         success:true,
-//         message:"Comment Updated"
-//       })
-//     }else{
-
-//       post.comments.push({//Appends new elements to the end of an array, and returns the new length of the array.
-//         user:req.user._id,
-//         comment:req.body.comment
-//       })
-//       await post.save()
-//       return res.status(200).json({
-//         success:true,
-//         message:"Comment Added"
-//       })
-//     }
-   
-//   } catch (error) {
-//     console.log(error)
-//     res.status(500).json({
-//       success:false,
-//       message:error.message
-//      })
-//   }
-// }
 exports.commentOnPost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
